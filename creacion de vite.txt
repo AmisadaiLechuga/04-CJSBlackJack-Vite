@@ -1,0 +1,12 @@
+creacion de vite
+
+-cd y la ruta donde se va a encontrar nuestra carpeta
+-npm create vite
+- y
+- Proyect nmane: vite-app
+- Seleccionamos el framework a trabajar en este caso es: vanilla
+-Seleccionamos una variante: vanilla
+
+-npm install
+- Nota: este comando solo utilizarlo cuando no cree la carpeta dist: npm run build
+-npm run dev
