@@ -1,6 +1,8 @@
 import _ from 'underscore';
+//import { crearDeck as crearNuevoDeck } from './usecases/crear-deck';  // aqui se esta utilizando un alias
+////import crearDeck from './usecases/crear-deck';  //Asi se llama un metodo por defecto (Puede tener cualquier nombre por que es un metodo por defecto)
+///import { miNombre } from './usecases/crear-deck';  //Asi se llama un metodo individual
 import { crearDeck } from './usecases/crear-deck';
-
 
 
 
@@ -31,7 +33,7 @@ const puntosHTML = document.querySelectorAll('small');
 
 
 
-crearDeck();
+deck = crearDeck( tipos, especiales );
 
 
 // Esta función me permite tomar una carta
