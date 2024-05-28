@@ -2,9 +2,7 @@ import _ from 'underscore';
 //import { crearDeck as crearNuevoDeck } from './usecases/crear-deck';  // aqui se esta utilizando un alias
 ////import crearDeck from './usecases/crear-deck';  //Asi se llama un metodo por defecto (Puede tener cualquier nombre por que es un metodo por defecto)
 ///import { miNombre } from './usecases/crear-deck';  //Asi se llama un metodo individual
-import { crearDeck } from './usecases/crear-deck';
-import { pedirCarta } from './usecases/pedir-carta';
-import { valorCarta } from './usecases/valor-carta';
+import { crearDeck, pedirCarta, valorCarta } from './usecases'; //Metodo Archivos Barril
 
 /**
  * 2C = Two of Clubs
