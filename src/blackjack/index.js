@@ -3,8 +3,8 @@ import _ from 'underscore';
 ////import crearDeck from './usecases/crear-deck';  //Asi se llama un metodo por defecto (Puede tener cualquier nombre por que es un metodo por defecto)
 ///import { miNombre } from './usecases/crear-deck';  //Asi se llama un metodo individual
 import { crearDeck } from './usecases/crear-deck';
-
-
+import { pedirCarta } from './usecases/pedir-carta';
+import { valorCarta } from './usecases/valor-carta';
 
 /**
  * 2C = Two of Clubs
@@ -16,6 +16,7 @@ import { crearDeck } from './usecases/crear-deck';
 let deck         = [];
 const tipos      = ['C','D','H','S'];
 const especiales = ['A','J','Q','K'];
+
 
 let puntosJugador = 0,
     puntosComputadora = 0;
@@ -31,35 +32,13 @@ const divCartasComputadora = document.querySelector('#computadora-cartas');
 const puntosHTML = document.querySelectorAll('small');
 
 
-
-
 deck = crearDeck(tipos, especiales);
-
-
-// Esta función me permite tomar una carta
-const pedirCarta = () => {
-
-    if ( deck.length === 0 ) {
-        throw 'No hay cartas en el deck';
-    }
-    const carta = deck.pop();
-    return carta;
-}
-
-// pedirCarta();
-const valorCarta = ( carta ) => {
-
-    const valor = carta.substring(0, carta.length - 1);
-    return ( isNaN( valor ) ) ? 
-            ( valor === 'A' ) ? 11 : 10
-            : valor * 1;
-}
 
 // turno de la computadora
 const turnoComputadora = ( puntosMinimos ) => {
 
     do {
-        const carta = pedirCarta();
+        const carta = pedirCarta( deck );
 
         puntosComputadora = puntosComputadora + valorCarta( carta );
         puntosHTML[1].innerText = puntosComputadora;
@@ -94,7 +73,7 @@ const turnoComputadora = ( puntosMinimos ) => {
 // Eventos
 btnPedir.addEventListener('click', () => {
 
-    const carta = pedirCarta();
+    const carta = pedirCarta( deck );
     
     puntosJugador = puntosJugador + valorCarta( carta );
     puntosHTML[0].innerText = puntosJugador;
@@ -132,7 +111,7 @@ btnNuevo.addEventListener('click', () => {
 
     console.clear();
     deck = [];
-    deck = crearDeck();
+    deck = crearDeck(tipos, especiales);
 
     puntosJugador     = 0;
     puntosComputadora = 0;
