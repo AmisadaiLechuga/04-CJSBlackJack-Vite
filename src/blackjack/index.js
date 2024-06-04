@@ -2,7 +2,7 @@ import _ from 'underscore';
 //import { crearDeck as crearNuevoDeck } from './usecases/crear-deck';  // aqui se esta utilizando un alias
 ////import crearDeck from './usecases/crear-deck';  //Asi se llama un metodo por defecto (Puede tener cualquier nombre por que es un metodo por defecto)
 ///import { miNombre } from './usecases/crear-deck';  //Asi se llama un metodo individual
-import { crearDeck, pedirCarta, valorCarta, turnoComputadora } from './usecases'; //Metodo Archivos Barril -->se manda a llamar la ruta del archivo de index 
+import { crearDeck, pedirCarta, valorCarta, turnoComputadora, crearCartaHTML } from './usecases'; //Metodo Archivos Barril -->se manda a llamar la ruta del archivo de index 
 
 /**
  * 2C = Two of Clubs
@@ -44,9 +44,7 @@ btnPedir.addEventListener('click', () => {
     puntosHTML[0].innerText = puntosJugador;
     
     // <img class="carta" src="assets/cartas/2C.png">
-    const imgCarta = document.createElement('img');
-    imgCarta.src = `assets/cartas/${ carta }.png`; //3H, JD
-    imgCarta.classList.add('carta');
+    const imgCarta = crearCartaHTML( carta );
     divCartasJugador.append( imgCarta );
 
     if ( puntosJugador > 21 ) {
